@@ -6,7 +6,7 @@ from django.db.models.fields import BinaryField
 class data(models.Model):
     content = models.BinaryField()
     url = models.CharField()
-    JSPorgram = models.TextField()
+    JSProgram = models.TextField()
 
     def __str__(self) -> str:
         return self.url
@@ -19,8 +19,8 @@ class metadata(models.Model):
         return self.Name
 
 class Package(models.Model):
-    metadata = models.ForeignKey(metadata, on_delete=models.CASCADE)
-    data = models.ForeignKey(data, on_delete=models.CASCADE)
+    metadata = models.OneToOneField(metadata, on_delete=models.CASCADE)
+    data = models.OneToOneField(data, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.metadata.Name
