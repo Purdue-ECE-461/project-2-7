@@ -29,7 +29,7 @@ class MetaDataSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = metadata
-        fields = ('Name', 'Version')
+        fields = ('Name', 'Version', 'ID')
 
 class PackageSerializer(serializers.ModelSerializer):
 

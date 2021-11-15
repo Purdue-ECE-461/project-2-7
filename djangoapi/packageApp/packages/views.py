@@ -22,7 +22,7 @@ import json
 @api_view(['GET', 'DELETE', 'PUT'])
 def package_element(request, id):
     try:
-        post = Package.objects.get(pk=id)
+        post = Package.objects.get(metadata=id)
     except Package.DoesNotExist:
         return HttpResponse(status=404)
 

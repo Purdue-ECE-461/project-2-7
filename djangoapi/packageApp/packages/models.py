@@ -15,13 +15,13 @@ class data(models.Model):
 class metadata(models.Model):
     Name = models.CharField(max_length=70)
     Version = models.CharField(max_length=70)
-    ID = models.CharField(max_length=70, primary_key=True)
+    ID = models.CharField(max_length=70, primary_key=True, default='')
 
     def __str__(self) -> str:
-        return self.Name
+        return self.ID
 
 class Package(models.Model):
-    metadata = models.OneToOneField(metadata, on_delete=models.CASCADE, primary_key=True)
+    metadata = models.OneToOneField(metadata, on_delete=models.CASCADE, default=None)
     data = models.OneToOneField(data, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
